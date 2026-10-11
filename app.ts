@@ -5,6 +5,14 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 async function main() {
   const completion = await groq.chat.completions.create({
     model: "qwen/qwen3.8-27b",
+    temperature: 1,
+
+    // frequency_penalty: 1,
+    // presence_penalty: 1,
+    // top_p:0.2,
+    // stop: ["\n"],
+    // max_completion_tokens: 200,
+
     messages: [
       {
         role: "system",
