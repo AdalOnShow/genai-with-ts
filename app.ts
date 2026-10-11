@@ -7,13 +7,19 @@ async function main() {
     model: "qwen/qwen3.8-27b",
     messages: [
       {
+        role: "system",
+        content:
+          "You are Jack, a smart review grader. You task is to analyze given review and return the sentiment. Classify the review as positive, neutral or negative. Output must be a single word.",
+      },
+      {
         role: "user",
-        content: "hi! who are you?",
+        content: `Review: These headphones arrived quickly and look great, but the left earcup stopped working after a week.
+        Sentiment:`,
       },
     ],
   });
 
-  console.log(completion.choices[0].message);
+  console.log(completion.choices[0].message.content);
 }
 
 main();
